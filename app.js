@@ -1,12 +1,3 @@
-////////////////\\\\\\\\\\\\\\\\
-// <<< CHANGE RAID ID HERE >>> \\
-
-const raidId = '1270376881103048787'
-
-// ----------------------------\\
-
-
-
 
 const fs = require('fs');
 const path = require('path');
@@ -14,6 +5,8 @@ const path = require('path');
 // Dynamicly import node-fetch
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
+
+const raidId = process.argv[2];
 
 const fetchData = async () => {
   try {
