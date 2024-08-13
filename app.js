@@ -59,7 +59,7 @@ const fetchData = async () => {
         if(err) {
             console.log(err);
         } else {
-            console.log('Successfully written!');
+            console.log('Successfuly written!');
         }
     });
 
