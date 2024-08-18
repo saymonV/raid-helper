@@ -19,17 +19,18 @@ const fetchData = async () => {
     }
     // Convert response from JSON
     const data = await response.json();
-    
+    const { startTime } = data;
+  
     // Get specific data about signed up player
     const signUps = data.signUps.map(player => {
 
         // Deconstructing each player object
         const { className: className, name } = player;
-        const { entryTime } = player;
+        
 
         // Returns array with required data
         return [
-            name,
+            capitalize(name),
             [
                 'Absence',
                 'Bench',
@@ -38,7 +39,7 @@ const fetchData = async () => {
             ].includes(className)
                 ? className
                 : 'On Time',
-                toISOString(entryTime),
+                toISOString(startTime),
                 1 // One is attendance indicator needed for later use in Excel  
         // Formatting output
         ].map(x => `"${x}"`) 
